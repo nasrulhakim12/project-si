@@ -1,9 +1,3 @@
 <?php
 
-require_once __DIR__ . '/../vendor/autoload.php';
-
-$app = require_once __DIR__ . '/../bootstrap/app.php';
-
-$app->handleRequest(
-    \Illuminate\Http\Request::capture()
-);
+echo "PHP Vercel berhasil jalan!";
