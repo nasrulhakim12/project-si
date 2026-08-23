@@ -7,22 +7,35 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\DashboardController;
 
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+*/
+
+// Halaman utama
+Route::get('/', function () {
+    return redirect()->route('login');
+});
+
+// Authentication
 Route::get('/login', [AuthController::class, 'showLogin'])
     ->name('login');
 
-Route::post('/login', [AuthController::class, 'login']);
+Route::post('/login', [AuthController::class, 'login'])
+    ->name('login.process');
 
 Route::post('/logout', [AuthController::class, 'logout'])
     ->name('logout');
 
+// Dashboard
 Route::get('/dashboard', [DashboardController::class, 'index'])
     ->middleware('admin')
     ->name('dashboard');
 
-
 /*
 |--------------------------------------------------------------------------
-| Admin
+| Admin Routes
 |--------------------------------------------------------------------------
 */
 
